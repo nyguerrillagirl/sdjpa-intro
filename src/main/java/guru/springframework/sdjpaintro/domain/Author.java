@@ -8,38 +8,31 @@ import lombok.*;
 
 import java.util.Objects;
 
-
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
 @ToString
 @Getter
 @Setter
-public class Book {
-
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NonNull
-    private String title;
+    private String firstName;
 
     @NonNull
-    private String isbn;
-
-    @NonNull
-    private String publisher;
-
-    private Long authorId;
+    private String lastName;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Book book = (Book) o;
+        Author author = (Author) o;
 
-        return Objects.equals(id, book.id);
+        return Objects.equals(id, author.id);
     }
 
     @Override
@@ -47,6 +40,3 @@ public class Book {
         return id != null ? id.hashCode() : 0;
     }
 }
-
-
-
